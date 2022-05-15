@@ -1,0 +1,132 @@
+@font-face {
+  font-family: Dosis;
+  src: url("./assets/fonts/Dosis-Light.ttf");
+  font-weight: 300;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-family: 'Dosis';
+  font-size: 1.3em;
+  background-color: #26282A;
+}
+
+.slider-wrapper {
+  margin: 0vh auto;
+  width: 50vw;
+  max-width: 50rem;
+}
+
+input {
+  visibility: hidden;
+  margin: 0;
+  height: 0;
+  width: 0;
+}
+
+.slides {
+  overflow: hidden;
+}
+
+.slides-wrapper {
+  display: flex;
+  padding: 2vh 0 2vh;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slide {
+  display: flex;
+  max-width: 100%;
+}
+
+.slide img {
+  min-width: 100%;
+  height: 36rem;
+  border-radius: 0.7%;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+}
+
+.lower-pane {
+  display: flex;
+  justify-content: space-between;
+}
+
+.captions {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.captions-wrapper {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.caption {
+  display: flex;
+  min-width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.controls label {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.controls label span {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #00FFFF;
+  border: 0.1rem solid #00FFFF;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 0.3rem 0 #00FFFF;
+}
+
+.slider label:hover span {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+#radioBtn1:checked ~ .lower-pane .controls label:nth-child(1) span,
+#radioBtn2:checked ~ .lower-pane .controls label:nth-child(2) span,
+#radioBtn3:checked ~ .lower-pane .controls label:nth-child(3) span,
+#radioBtn4:checked ~ .lower-pane .controls label:nth-child(4) span {
+  background-color: #26282A;
+  border-color: #00FFFF;
+}
+
+#radioBtn1:checked:hover ~ .lower-pane .controls label:nth-child(1) span,
+#radioBtn2:checked:hover ~ .lower-pane .controls label:nth-child(2) span,
+#radioBtn3:checked:hover ~ .lower-pane .controls label:nth-child(3) span,
+#radioBtn4:checked:hover ~ .lower-pane .controls label:nth-child(4) span {
+  border-color: #FFFFFF;
+}
+
+#radioBtn1:checked ~ .slides .slides-wrapper,
+#radioBtn1:checked ~ .lower-pane .captions .captions-wrapper {
+  transform: translateX(0);
+}
+
+#radioBtn2:checked ~ .slides .slides-wrapper,
+#radioBtn2:checked ~ .lower-pane .captions .captions-wrapper {
+  transform: translateX(-100%);
+}
+
+#radioBtn3:checked ~ .slides .slides-wrapper,
+#radioBtn3:checked ~ .lower-pane .captions .captions-wrapper {
+  transform: translateX(-200%);
+}
+
+#radioBtn4:checked ~ .slides .slides-wrapper,
+#radioBtn4:checked ~ .lower-pane .captions .captions-wrapper {
+  transform: translateX(-300%);
+}
